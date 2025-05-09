@@ -49,16 +49,4 @@ plt.savefig("grafico_pac_dut_associacao.png")
 plt.show()
 
 # ========== GRÁFICO 3: Odontologia vs Outras Áreas ==========
-odonto = df['GRUPO'].str.contains("ODONTOL", case=False, na=False)
-odonto_contagem = pd.Series({
-    'Odontologia': odonto.sum(),
-    'Outras áreas': (~odonto).sum()
-})
 
-plt.figure(figsize=(6, 4))
-sns.barplot(x=odonto_contagem.values, y=odonto_contagem.index, palette="viridis")
-plt.title("Distribuição de Procedimentos Odontológicos vs Outras Áreas")
-plt.xlabel("Quantidade de Procedimentos")
-plt.tight_layout()
-plt.savefig("grafico_odontologia_vs_outras.png")
-plt.show()
