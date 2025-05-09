@@ -1,63 +1,71 @@
-# 📊 Análise do Rol de Procedimentos da ANS – Projeto Raitec
+# Análise do Rol de Procedimentos da ANS
 
-Este projeto realiza uma análise automatizada do Anexo I do Rol de Procedimentos e Eventos em Saúde da ANS, com o objetivo de gerar insights estratégicos para embasar propostas de melhoria regulatória.
-
----
-
-## ⚙️ Etapas do Projeto
-
-1. **`web_scraping.py`**  
-   Faz o download automático do PDF oficial mais recente da ANS.
-
-2. **`extrair_pdf.py`**  
-   Extrai tabelas estruturadas do PDF e salva como `rol_extraido.csv`.
-
-3. **`analise_rol_ans.py`**  
-   Realiza análise exploratória e gera gráficos com base nos dados extraídos.
+Este projeto realiza uma análise exploratória do Rol de Procedimentos e Eventos em Saúde da ANS, com o objetivo de gerar **insights visuais** sobre os procedimentos cobertos pelos planos de saúde no Brasil.
 
 ---
 
-## 🔍 Análises Realizadas
+## 📊 Gráfico 1: Top 5 Subgrupos com Mais Procedimentos
 
-### 📊 Gráfico 1: Top 5 Subgrupos com Mais Procedimentos
-- Mostra as áreas com maior número de procedimentos listados no rol.
-- **Insight**: Forte concentração em subgrupos laboratoriais e técnicos pode indicar prioridade da ANS em exames diagnósticos.
+Esse gráfico mostra os cinco subgrupos com maior quantidade de procedimentos listados no Rol da ANS.
 
-📎 `grafico_subgrupos_top5.png`
+![Top 5 Subgrupos](grafico_subgrupos.png)
 
----
-
-### 🔗 Gráfico 2: Associação entre PAC e DUT
-- Classifica os procedimentos conforme possuem ou não marcações de Alta Complexidade (PAC) e Diretriz de Utilização (DUT).
-- **Insight**: Nem todos os procedimentos de alta complexidade exigem critérios adicionais de regulação, e vice-versa.
-
-📎 `grafico_pac_dut_associacao.png`
+**Insight:** O subgrupo *Imunologia* lidera em número de procedimentos, seguido por *Procedimentos gerais* e *Bioquímica*.
 
 ---
 
-### 🦷 Gráfico 3: Odontologia vs Outras Áreas
-- Compara o número de procedimentos odontológicos com os demais.
-- **Insight**: Verifica se a odontologia está proporcionalmente representada no rol atual.
+## 🦷 Gráfico 2: Cobertura no Grupo "Cabeça e Pescoço"
 
-📎 `grafico_odontologia_vs_outras.png`
+Aqui analisamos quais tipos de plano cobrem procedimentos do grupo **Cabeça e Pescoço**, com destaque para os exclusivamente odontológicos.
+
+![Cobertura Cabeça e Pescoço](grafico_cobertura_cabeca_pescoco.png)
+
+**Insight:** Muitos procedimentos são cobertos apenas por planos odontológicos (`OD`), o que evidencia sua segmentação.
 
 ---
 
-## 📎 Arquivos Gerados
+## 🧪 Gráfico 3: Associação PAC/DUT
 
-- `preview_tabela.csv`: 5 primeiras linhas da base extraída
-- `rol_extraido.csv`: todos os dados extraídos do PDF
-- `grafico_subgrupos_top5.png`
-- `grafico_pac_dut_associacao.png`
-- `grafico_odontologia_vs_outras.png`
+Esse gráfico (gerado em `analise_rol_ans.py`) mostra a presença ou ausência de associação entre **PAC** (Protocolo de Atenção Clínica) e **DUT** (Diretriz de Utilização).
+
+![PAC/DUT](grafico_pac_dut_associacao.png)
+
+**Insight:** Um número considerável de procedimentos não possui associação clara com PAC ou DUT, o que pode impactar a regulação.
+
+---
+
+## 🛠️ Ferramentas Utilizadas
+
+| Ferramenta | Finalidade | Onde foi utilizada |
+|------------|------------|--------------------|
+| **Python** | Linguagem principal de análise e automação | Todos os scripts `.py` |
+| **Requests** | Download automático de PDF da ANS | `web_scraping.py` |
+| **BeautifulSoup** | Extração de links da página da ANS | `web_scraping.py` |
+| **pdfplumber** | Extração de tabelas do PDF | `extrair_pdf.py` |
+| **Pandas** | Manipulação e análise de dados | `analise_rol_ans.py`, `odonto.py` |
+| **Matplotlib** | Geração de gráficos de barras | `analise_rol_ans.py`, `odonto.py` |
+| **Seaborn** | Visualizações estilizadas com paleta de cores | `analise_rol_ans.py`, `odonto.py` |
+| **Jupyter/VSC** | Desenvolvimento e testes dos scripts | Localmente, durante o desenvolvimento |
+
+Todas as ferramentas utilizadas estão dentro das **regras do desafio do CASE RAITec 2025.1**, incluindo o uso obrigatório de Python e bibliotecas livres para análise de dados.
+
+---
+
+## 📁 Arquivos principais
+
+- `web_scraping.py`: faz o download do PDF do site da ANS
+- `extrair_pdf.py`: extrai as tabelas do PDF
+- `rol_extraido.csv`: base final usada na análise
+- `analise_rol_ans.py`: gera gráficos gerais (PAC, DUT, subgrupos, odonto x outras áreas)
+- `odonto.py`: análise específica para o grupo "Cabeça e Pescoço" com foco em planos odontológicos
 
 ---
 
 ## 👥 Participantes
 
-- Maria Paula Mesquita Silva Saraiva
-- João Victor Jorge Almeida Benevides
-- Vitória Lima Albuquerque
-- Gustavo Silveira Alcântera
+- Maria Paula Mesquita Silva Saraiva  
+- João Victor Jorge Almeida Benevides  
+- Vitória Lima Albuquerque  
+- Gustavo Silveira Alcântera  
 
 Projeto desenvolvido para o **CASE RAITec 2025.1**.
