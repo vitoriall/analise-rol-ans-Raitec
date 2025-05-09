@@ -8,7 +8,7 @@ Este projeto realiza uma análise exploratória do Rol de Procedimentos e Evento
 
 Esse gráfico mostra os cinco subgrupos com maior quantidade de procedimentos listados no Rol da ANS.
 
-![Top 5 Subgrupos](grafico_subgrupos.png)
+![Top 5 Subgrupos](grafico_subgrupos_top5.png)
 
 **Insight:** O subgrupo *Imunologia* lidera em número de procedimentos, seguido por *Procedimentos gerais* e *Bioquímica*.
 
