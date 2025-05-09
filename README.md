@@ -1,44 +1,55 @@
 # 📊 Análise do Rol de Procedimentos da ANS – Projeto Raitec
 
-Este projeto realiza uma análise automatizada do Anexo I do Rol de Procedimentos e Eventos em Saúde publicado pela ANS, com o objetivo de gerar **insights estratégicos** que possam embasar **propostas de melhoria ao governo**.
+Este projeto realiza uma análise automatizada do Anexo I do Rol de Procedimentos e Eventos em Saúde da ANS, com o objetivo de gerar insights estratégicos para embasar propostas de melhoria regulatória.
 
 ---
 
 ## ⚙️ Etapas do Projeto
 
-- **`web_scraping.py`**  
-  Baixa automaticamente o PDF atualizado do site da ANS.
+1. **`web_scraping.py`**  
+   Faz o download automático do PDF oficial mais recente da ANS.
 
-- **`extrair_pdf.py`**  
-  Lê o PDF, extrai as tabelas de procedimentos e salva um CSV (`rol_extraido.csv`).
+2. **`extrair_pdf.py`**  
+   Extrai tabelas estruturadas do PDF e salva como `rol_extraido.csv`.
 
-- **`analise_rol_ans.py`**  
-  Gera os principais insights do projeto, com visualização gráfica.
-
----
-
-## 📌 Insights Identificados
-
-### 1. Ausência de dados financeiros (PAC)
-Mais de 85% dos procedimentos analisados não possuem valor preenchido para o campo **PAC** (Preço por Ato Completo).  
-Isso compromete a **transparência** e **planejamento financeiro** do setor.
-
-📎 Gráfico: `grafico_pac_ausente.png`
+3. **`analise_rol_ans.py`**  
+   Realiza análise exploratória e gera gráficos com base nos dados extraídos.
 
 ---
 
-### 2. Subgrupos mais representados
-Mostra os **5 subgrupos** com maior número de procedimentos no rol.
+## 🔍 Análises Realizadas
 
-📎 Gráfico: `grafico_subgrupos.png`
+### 📊 Gráfico 1: Top 5 Subgrupos com Mais Procedimentos
+- Mostra as áreas com maior número de procedimentos listados no rol.
+- **Insight**: Forte concentração em subgrupos laboratoriais e técnicos pode indicar prioridade da ANS em exames diagnósticos.
+
+📎 `grafico_subgrupos_top5.png`
 
 ---
 
-## 🧠 Propostas de Melhoria
+### 🔗 Gráfico 2: Associação entre PAC e DUT
+- Classifica os procedimentos conforme possuem ou não marcações de Alta Complexidade (PAC) e Diretriz de Utilização (DUT).
+- **Insight**: Nem todos os procedimentos de alta complexidade exigem critérios adicionais de regulação, e vice-versa.
 
-- Tornar obrigatório o preenchimento do campo **PAC** em futuras atualizações.
-- Publicar critérios técnicos para definição desses valores.
-- Acompanhar a distribuição dos subgrupos para garantir equidade no rol.
+📎 `grafico_pac_dut_associacao.png`
+
+---
+
+### 🦷 Gráfico 3: Odontologia vs Outras Áreas
+- Compara o número de procedimentos odontológicos com os demais.
+- **Insight**: Verifica se a odontologia está proporcionalmente representada no rol atual.
+
+📎 `grafico_odontologia_vs_outras.png`
+
+---
+
+## 📎 Arquivos Gerados
+
+- `preview_tabela.csv`: 5 primeiras linhas da base extraída
+- `rol_extraido.csv`: todos os dados extraídos do PDF
+- `grafico_subgrupos_top5.png`
+- `grafico_pac_dut_associacao.png`
+- `grafico_odontologia_vs_outras.png`
 
 ---
 
