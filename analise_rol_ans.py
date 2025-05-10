@@ -48,5 +48,4 @@ plt.tight_layout()
 plt.savefig("grafico_pac_dut_associacao.png")
 plt.show()
 
-# ========== GRÁFICO 3: Odontologia vs Outras Áreas ==========
 
